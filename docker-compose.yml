@@ -1,0 +1,18 @@
+version: '3'
+services:
+  server:
+    image: python
+    volumes:
+      - ".:/code"
+    command: python 3serv.py
+    working_dir: /code
+    environment:
+      - PYTHONUNBUFFERED=1
+    networks:
+      - crossknowledge-network
+    ports:
+      - "3001:80"
+
+networks:
+  crossknowledge-network:
+    external: true
